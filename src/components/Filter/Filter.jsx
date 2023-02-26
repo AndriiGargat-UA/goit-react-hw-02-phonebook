@@ -1,4 +1,4 @@
-import PropTypes from 'prop-types'; 
+import PropTypes from 'prop-types';
 
 export const Filter = ({ value, filterName }) => {
   return (
@@ -12,4 +12,4 @@ export const Filter = ({ value, filterName }) => {
 Filter.propTypes = {
   value: PropTypes.string.isRequired,
   filterName: PropTypes.func.isRequired,
-}
+};

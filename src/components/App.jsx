@@ -3,6 +3,8 @@ import { Component } from 'react';
 import { ContactForm } from './ContactForm/ContactForm';
 import { ContactList } from './ContactList/ContactList';
 import { Filter } from './Filter/Filter';
+import { GlobalStyle } from './GlobalStyle';
+import { Layout } from './Layout';
 
 export class App extends Component {
   state = {
@@ -47,17 +49,8 @@ export class App extends Component {
 
   render() {
     return (
-      <div
-        style={{
-          height: '100vh',
-          display: 'flex',
-          flexDirection: 'column',
-          justifyContent: 'center',
-          alignItems: 'center',
-          fontSize: 20,
-          color: '#010101',
-        }}
-      >
+      <Layout>
+        <GlobalStyle />
         <h2>Phonebook</h2>
         <ContactForm onSubmit={this.formSubmitHandler} />
 
@@ -70,7 +63,7 @@ export class App extends Component {
             onDelete={this.deleteContact}
           />
         </div>
-      </div>
+      </Layout>
     );
   }
 }
