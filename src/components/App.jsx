@@ -43,7 +43,6 @@ export class App extends Component {
     this.setState(prevState => ({
       contacts: prevState.contacts.filter(el => el.id !== id),
     }));
-    console.log(id)
   };
 
   render() {
