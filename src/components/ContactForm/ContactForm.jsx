@@ -22,13 +22,19 @@ export class ContactForm extends Component {
     event.preventDefault();
     const { name, number } = this.state;
     const newContact = { id: nanoid(), name: name, number: number };
-
     this.props.onSubmit(newContact);
     this.reset();
   };
 
   reset = () => {
-    this.setState({ name: '', number: '' });
+    const { myContacts } = this.props;
+    const checkContact = myContacts.find(
+      contact => contact.name.toLowerCase() === this.state.name.toLowerCase()
+    );
+    if (!checkContact) {
+      this.setState({ name: '', number: '' });
+    }
+    return;
   };
 
   render() {
@@ -68,4 +74,11 @@ export class ContactForm extends Component {
 
 ContactForm.propTypes = {
   onSubmit: PropTypes.func.isRequired,
+  myContacts: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string.isRequired,
+      name: PropTypes.string.isRequired,
+      number: PropTypes.string.isRequired,
+    }).isRequired
+  ).isRequired,
 };

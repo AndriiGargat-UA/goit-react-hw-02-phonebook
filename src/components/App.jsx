@@ -52,10 +52,11 @@ export class App extends Component {
       <Layout>
         <GlobalStyle />
         <h2>Phonebook</h2>
-        <ContactForm onSubmit={this.formSubmitHandler} />
-
+        <ContactForm
+          onSubmit={this.formSubmitHandler}
+          myContacts={this.state.contacts}
+        />
         <Filter filterName={this.changeFilter} value={this.state.filter} />
-
         <div>
           <h2>Contacts</h2>
           <ContactList
@@ -66,4 +67,4 @@ export class App extends Component {
       </Layout>
     );
   }
-}
+};
